@@ -22,6 +22,7 @@
                 name="cart_checkbox"
                 value="on"
                 unchecked-value="off"
+                @change="aa"
               ></b-form-checkbox>
               <div style="font-size: 10px">State: <strong>{{ cart_status }}</strong></div>
             </div>
@@ -40,6 +41,7 @@
                 name="item_list_checkbox"
                 value="on"
                 unchecked-value="off"
+                @change="aa"
               ></b-form-checkbox>
               <div style="font-size: 10px">State: <strong>{{ item_list }}</strong></div>
             </div>
@@ -58,6 +60,7 @@
                 name="item_detail_checkbox"
                 value="on"
                 unchecked-value="off"
+                @change="aa"
               ></b-form-checkbox>
               <div style="font-size: 10px">State: <strong>{{ item_detail }}</strong></div>
             </div>
@@ -75,11 +78,29 @@ var item_list = 'off'
 var item_detail = 'off'
 export default {
   name: 'IndexPage',
-    data() {
+    data (){
     return {
       cart_status: cart_status,
       item_list: item_list,
-      item_detail: item_detail
+      item_detail: item_detail,
+    }
+  },
+  // created: function () {
+    // this.$axios
+    //   .get("http://127.0.0.1:8000/blog")
+    //   .then((Response) => this.datas = Response.data)
+    //   .catch((Error) => {
+    //     console.log(Error);
+    //   });
+  // },
+  mounted(){
+    const paramOfUrl = window.location.search;
+    const param = new URLSearchParams(paramOfUrl);
+    console.log(param.get("mall_id"))
+  },
+  methods: {
+    aa: function(event){
+      console.log(event)
     }
   }
 }

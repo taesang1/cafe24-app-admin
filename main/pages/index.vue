@@ -22,7 +22,7 @@
                 name="cart_checkbox"
                 value="on"
                 unchecked-value="off"
-                @change="aa"
+                @change="cart"
               ></b-form-checkbox>
               <div style="font-size: 10px">State: <strong>{{ cart_status }}</strong></div>
             </div>
@@ -37,13 +37,13 @@
             <div style="zoom: 2; margin: auto;">
               <b-form-checkbox
                 id="item_list_checkbox"
-                v-model="item_list"
+                v-model="item_list_status"
                 name="item_list_checkbox"
                 value="on"
                 unchecked-value="off"
-                @change="aa"
+                @change="item_list"
               ></b-form-checkbox>
-              <div style="font-size: 10px">State: <strong>{{ item_list }}</strong></div>
+              <div style="font-size: 10px">State: <strong>{{ item_list_status }}</strong></div>
             </div>
           </div>
           
@@ -56,13 +56,13 @@
             <div style="zoom: 2; margin: auto;">
               <b-form-checkbox
                 id="item_detail_checkbox"
-                v-model="item_detail"
+                v-model="item_detail_status"
                 name="item_detail_checkbox"
                 value="on"
                 unchecked-value="off"
-                @change="aa"
+                @change="item_detail"
               ></b-form-checkbox>
-              <div style="font-size: 10px">State: <strong>{{ item_detail }}</strong></div>
+              <div style="font-size: 10px">State: <strong>{{ item_detail_status }}</strong></div>
             </div>
           </div>
 
@@ -74,15 +74,15 @@
 
 <script>
 var cart_status = 'off'
-var item_list = 'off'
-var item_detail = 'off'
+var item_list_status = 'off'
+var item_detail_status = 'off'
 export default {
   name: 'IndexPage',
     data (){
     return {
       cart_status: cart_status,
-      item_list: item_list,
-      item_detail: item_detail,
+      item_list_status: item_list_status,
+      item_detail_status: item_detail_status,
     }
   },
   // created: function () {
@@ -99,7 +99,13 @@ export default {
     console.log(param.get("mall_id"))
   },
   methods: {
-    aa: function(event){
+    cart: function(event){
+      console.log(event)
+    },
+    item_list: function(event){
+      console.log(event)
+    },
+    item_detail: function(event){
       console.log(event)
     }
   }
